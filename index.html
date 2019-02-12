@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hangman</title>
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -19,7 +20,26 @@
             <div class="row align-items-center">
                 <div class="col-12 col-md-8 my-3">
                     <div class="col-12 col-md-4">
-                        <h1>Word Guessing Game</h1>
+                        <p>
+                            <span class="blue">S</span>
+                            <span class="yellow">U</span>
+                            <span class="red">P</span>
+                            <span class="green">E</span>
+                            <span class="yellow">R </span>
+
+                            <span class="red">W</span>
+                            <span class="green">O</span>
+                            <span class="blue">R</span>
+                            <span class="green">D</span>
+
+                            <br>
+
+                            <span class="blue">G</span>
+                            <span class="yellow">U</span>
+                            <span class="red">E</span>
+                            <span class="green">S</span>
+                            <span class="yellow">S</span>
+                        </p>
                         <button id="new-game-button">
                             Start!
                         </button>
@@ -66,28 +86,10 @@
             </div>
         </div>
     </div>
-
-
-    <!-- <div class="hangman">
-        <div class="guess"></div>
-        <form class="guessForm">
-            <input type="text" class="guessLetter" maxlength="1" placeholder="Enter a letter . . . &#x23ce;" /> <button
-                type="submit" class="guessButton">Guess</button>
-        </form>
-        <p>Hint: words are web related. 
-            <br />
-            <a href="https://codepen.io/natewiley">Follow Me on Codepen</a>
-        </p>
-        <div class="wrong">
-            <div class="wrongLetters"></div>
-        </div>
-        <div class="message">
-            <h1 class="title"></h1>
-            <p class="text"></p>
-            <button class="restart button">Play Again?</button>
-
-        </div>
-    -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js.bootstrap.min.js"></script>
+    <script src="assets/javascript/game.js"></script>
     </div>
 
 </body>
