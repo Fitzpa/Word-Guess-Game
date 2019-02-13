@@ -27,15 +27,15 @@ function newGame() {
 
     for (var i = 0; i < pickedWord.length; i++) {
 
-        if(pickedWord[i] === " ") {
+        if (pickedWord[i] === " ") {
             pickedWordPlaceholderArray.push(" ");
         } else {
             pickedWordPlaceholderArray.push("_")
         }
     }
-$guessesLeft.textContent = guessesLeft;
-$placeholders.textContent = pickedWordPlaceholderArray.join("");
-$guessedLetters.textContent = incorrectLetterBank;
+    $guessesLeft.textContent = guessesLeft;
+    $placeholders.textContent = pickedWordPlaceholderArray.join("");
+    $guessedLetters.textContent = incorrectLetterBank;
 }
 
 function letterGuess(letter) {
@@ -48,12 +48,16 @@ function letterGuess(letter) {
 
 
         //check if the letter is or isn't in the chosen word
-        for (car i = 0; i < pickedWord.length; i++;) {
+        for (var i = 0; i < pickedWord.length; i++) {
             //Convert all letters to lowercase so we don't have to worry about case when comparing letters
             if (pickedWord[i].toLowerCase() === letter.toLowerCase()) {
-                pickedWordPlaceholderArray[i] === pickedWord[i];
+                pickedWordPlaceholderArray[i] = pickedWord[i];
             }
         }
+
+        $placeholders.textContent = pickedWordPlaceholderArray.join("");
+        isIncorrect(letter);
+
     }
     else {
         if (gameRunning === false) {
@@ -65,5 +69,54 @@ function letterGuess(letter) {
     }
 }
 
+function isIncorrect(letter) {
+    if (pickedWordPlaceholderArray.indexOf(letter.toLowerCase()) === -1 && pickedWordPlaceholderArray.indexOf(letter.toUpperCase()) === -1) {
+      guessesLeft--;
+      incorrectLetterBank.push(letter);
+      $guessedLetters.textContent = incorrectLetterBank.join(" ");
+      $guessesLeft.textContent = guessesLeft;
+    }
+    loss();
+  }
+  
+//checks for loss
+function loss() {
+    if (guessesLeft === 0) {
+        losses++;
+        gameRunning = false;
+        $losses.textContent = losses;
+       // gameOver();
+    }
+    win();
+}
+/*
+function gameOver() {
+    var x = document.createElement("IMG");
+    x.setAttribute("src", "assets/images/game-over.jpg");
+    x.setAttribute("width", "auto");
+   
+    x.setAttribute("alt", "Game Over");
+    document.body.appendChild(x);
+  }*/
+
+//checks for win
+function win() {
+    if (pickedWord.toLowerCase() === pickedWordPlaceholderArray.join("").toLowerCase()) {
+        wins++;
+        gameRunning = false;
+        $wins.textContent = wins;
+    }
+}
+
+
+
+
 $newGameButton.addEventListener("click", newGame);
+
+document.onkeyup = function (event) {
+    console.dir(event);
+    if (event.keyCode >= 65 && event.keyCode <= 90) {
+        letterGuess(event.key)
+    }  
+}
 
