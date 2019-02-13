@@ -38,5 +38,32 @@ $placeholders.textContent = pickedWordPlaceholderArray.join("");
 $guessedLetters.textContent = incorrectLetterBank;
 }
 
+function letterGuess(letter) {
+    console.log(letter);
+
+    if (gameRunning === true && guessedLetterBank.indexOf(letter) === -1) {
+        // run game
+
+        guessedLetterBank.push(letter);
+
+
+        //check if the letter is or isn't in the chosen word
+        for (car i = 0; i < pickedWord.length; i++;) {
+            //Convert all letters to lowercase so we don't have to worry about case when comparing letters
+            if (pickedWord[i].toLowerCase() === letter.toLowerCase()) {
+                pickedWordPlaceholderArray[i] === pickedWord[i];
+            }
+        }
+    }
+    else {
+        if (gameRunning === false) {
+            alert("The game isn't running. Click the Start Button.");
+        }
+        else {
+            alert("You have already used this letter. Try a new one.");
+        }
+    }
+}
+
 $newGameButton.addEventListener("click", newGame);
 
